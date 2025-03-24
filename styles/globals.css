@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  body {
+    @apply bg-dark text-textPrimary font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-md font-medium transition-all duration-300 uppercase tracking-wide;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-opacity-90 hover:shadow-lg hover:shadow-primary/30;
+  }
+  .btn-secondary {
+    @apply btn bg-secondary text-dark hover:bg-opacity-90 hover:shadow-lg hover:shadow-secondary/30;
+  }
+  .btn-accent {
+    @apply btn bg-accent1 text-dark hover:bg-opacity-90 hover:shadow-lg hover:shadow-accent1/30;
+  }
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary inline-block text-transparent bg-clip-text;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1;
+  }
+} 
