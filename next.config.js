@@ -3,7 +3,16 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['www.istockphoto.com', 'www.shutterstock.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.istockphoto.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.shutterstock.com',
+      },
+    ],
   },
 };
 
