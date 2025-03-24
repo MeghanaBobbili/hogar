@@ -12,7 +12,7 @@ export default function Hero() {
         {/* Background image */}
         <div className="w-full h-full relative">
           <Image 
-            src="/images/banners/hero-banner.png" 
+            src="/images/banners/banner-01.jpg" 
             alt="Hogar Controls Smart Home Solutions"
             fill
             style={{ objectFit: 'cover' }}
@@ -33,8 +33,8 @@ export default function Hero() {
           <Button href="/solutions" variant="primary">
             Explore Solutions
           </Button>
-          <Button href="/products" variant="secondary">
-            View Products
+          <Button href="/get-started" variant="secondary">
+            Get Started
           </Button>
         </div>
       </div>

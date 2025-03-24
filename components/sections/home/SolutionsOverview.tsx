@@ -43,7 +43,7 @@ export default function SolutionsOverview() {
             <div className="absolute inset-0 bg-gradient-to-t from-dark to-transparent z-10"></div>
             <div className="aspect-[4/5] bg-dark/80 relative">
               <Image
-                src="/images/solutions/home-security.jpg"
+                src="/images/solutions/home_security.jpg"
                 alt="Home Security"
                 fill
                 style={{ objectFit: 'cover' }}

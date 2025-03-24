@@ -32,8 +32,13 @@ export default function ResourcesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Blogs & Articles */}
             <div className="bg-dark/30 rounded-xl overflow-hidden border border-primary/20">
-              <div className="h-48 bg-dark/70 flex items-center justify-center">
-                <div className="text-6xl">📝</div>
+              <div className="h-48 bg-dark/70 relative">
+                <Image
+                  src="/images/general/smart-home.jpg"
+                  alt="Blogs & Articles"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl mb-3">Blogs & Articles</h3>
@@ -48,8 +53,13 @@ export default function ResourcesPage() {
             
             {/* Case Studies */}
             <div className="bg-dark/30 rounded-xl overflow-hidden border border-primary/20">
-              <div className="h-48 bg-dark/70 flex items-center justify-center">
-                <div className="text-6xl">🔍</div>
+              <div className="h-48 bg-dark/70 relative">
+                <Image
+                  src="/images/general/experience-centre.jpg"
+                  alt="Case Studies"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl mb-3">Case Studies</h3>
@@ -64,8 +74,13 @@ export default function ResourcesPage() {
             
             {/* Product Manuals */}
             <div className="bg-dark/30 rounded-xl overflow-hidden border border-primary/20">
-              <div className="h-48 bg-dark/70 flex items-center justify-center">
-                <div className="text-6xl">📚</div>
+              <div className="h-48 bg-dark/70 relative">
+                <Image
+                  src="/images/solutions/home_security.jpg"
+                  alt="Product Manuals"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl mb-3">Product Manuals</h3>
@@ -80,8 +95,13 @@ export default function ResourcesPage() {
             
             {/* FAQs */}
             <div className="bg-dark/30 rounded-xl overflow-hidden border border-primary/20">
-              <div className="h-48 bg-dark/70 flex items-center justify-center">
-                <div className="text-6xl">❓</div>
+              <div className="h-48 bg-dark/70 relative">
+                <Image
+                  src="/images/banners/banner-01.jpg"
+                  alt="FAQs"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl mb-3">FAQs</h3>
@@ -96,8 +116,13 @@ export default function ResourcesPage() {
             
             {/* Support */}
             <div className="bg-dark/30 rounded-xl overflow-hidden border border-primary/20">
-              <div className="h-48 bg-dark/70 flex items-center justify-center">
-                <div className="text-6xl">🛠️</div>
+              <div className="h-48 bg-dark/70 relative">
+                <Image
+                  src="/images/general/testimonial.png"
+                  alt="Support"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl mb-3">Support</h3>
@@ -112,8 +137,13 @@ export default function ResourcesPage() {
             
             {/* Downloads */}
             <div className="bg-dark/30 rounded-xl overflow-hidden border border-primary/20">
-              <div className="h-48 bg-dark/70 flex items-center justify-center">
-                <div className="text-6xl">⬇️</div>
+              <div className="h-48 bg-dark/70 relative">
+                <Image
+                  src="/images/app/hogar-app.jpg"
+                  alt="Downloads"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl mb-3">Downloads</h3>

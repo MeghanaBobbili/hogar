@@ -28,19 +28,39 @@ export default function HomePage() {
           
           {/* Products grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-dark/50 rounded-xl border border-primary/20 hover:border-primary/40 transition-all">
-              <h3 className="text-2xl mb-4">Elite Range</h3>
-              <p className="text-light/80 mb-6">Premium quality smart home devices with advanced features and elegant design for luxury homes.</p>
-              <button className="btn-secondary">
-                View Products
-              </button>
+            <div className="p-8 bg-dark/50 rounded-xl border border-primary/20 hover:border-primary/40 transition-all relative overflow-hidden">
+              <div className="absolute inset-0 opacity-20">
+                <Image 
+                  src="/images/general/smart-home.jpg"
+                  alt="Smart Home"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              <div className="relative z-10">
+                <h3 className="text-2xl mb-4">Elite Range</h3>
+                <p className="text-light/80 mb-6">Premium quality smart home devices with advanced features and elegant design for luxury homes.</p>
+                <button className="btn-secondary">
+                  View Products
+                </button>
+              </div>
             </div>
-            <div className="p-8 bg-dark/50 rounded-xl border border-primary/20 hover:border-primary/40 transition-all">
-              <h3 className="text-2xl mb-4">Premium Range</h3>
-              <p className="text-light/80 mb-6">Feature-rich smart home solutions with excellent value for quality-conscious homeowners.</p>
-              <button className="btn-secondary">
-                View Products
-              </button>
+            <div className="p-8 bg-dark/50 rounded-xl border border-primary/20 hover:border-primary/40 transition-all relative overflow-hidden">
+              <div className="absolute inset-0 opacity-20">
+                <Image 
+                  src="/images/general/experience-centre.jpg"
+                  alt="Experience Centre"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+              <div className="relative z-10">
+                <h3 className="text-2xl mb-4">Premium Range</h3>
+                <p className="text-light/80 mb-6">Feature-rich smart home solutions with excellent value for quality-conscious homeowners.</p>
+                <button className="btn-secondary">
+                  View Products
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -109,7 +129,7 @@ export default function HomePage() {
                   <div className="text-center p-4">
                     <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-3">
                       <Image 
-                        src="/images/apps/hogar-app.jpg"
+                        src="/images/app/hogar-app.jpg"
                         alt="Hogar Pro S App" 
                         width={50} 
                         height={50}
@@ -122,7 +142,7 @@ export default function HomePage() {
                   <div className="text-center p-4">
                     <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-3">
                       <Image 
-                        src="/images/apps/hogar-app.jpg"
+                        src="/images/app/hogar-app.jpg"
                         alt="Hogar SE App" 
                         width={50} 
                         height={50}
@@ -135,7 +155,7 @@ export default function HomePage() {
                   <div className="text-center p-4">
                     <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-3">
                       <Image 
-                        src="/images/apps/hogar-app.jpg"
+                        src="/images/app/hogar-app.jpg"
                         alt="Hogar Mini S App" 
                         width={50} 
                         height={50}
@@ -147,16 +167,24 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="mt-6 flex justify-center gap-4">
-                  <button className="btn-primary">
-                    <span className="flex items-center">
-                      <span className="mr-2">📱</span> App Store
-                    </span>
-                  </button>
-                  <button className="btn-primary">
-                    <span className="flex items-center">
-                      <span className="mr-2">🤖</span> Google Play
-                    </span>
-                  </button>
+                  <a href="#" className="hover:opacity-80 transition-opacity">
+                    <Image 
+                      src="/images/logos/app-stores/app-store.svg"
+                      alt="Download on the App Store"
+                      width={135}
+                      height={40}
+                      className="rounded-lg"
+                    />
+                  </a>
+                  <a href="#" className="hover:opacity-80 transition-opacity">
+                    <Image 
+                      src="/images/logos/app-stores/google-play.svg"
+                      alt="Get it on Google Play"
+                      width={135}
+                      height={40}
+                      className="rounded-lg"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -164,7 +192,7 @@ export default function HomePage() {
               {/* App screenshot */}
               <div className="relative h-[500px] w-[250px] rounded-3xl overflow-hidden shadow-lg border-8 border-dark">
                 <Image
-                  src="/images/apps/mobile-app.png"
+                  src="/images/app/mobile-app.png"
                   alt="Hogar Controls App Screenshot"
                   fill
                   style={{ objectFit: 'cover' }}

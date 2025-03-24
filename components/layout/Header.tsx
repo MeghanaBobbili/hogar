@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -16,54 +16,78 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ title, href, submenu, isLast }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = React.useRef<HTMLDivElement>(null);
   
-  const handleMouseEnter = () => {
-    setIsOpen(true);
-  };
-  
-  const handleMouseLeave = () => {
-    setIsOpen(false);
-  };
-  
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
+
+  // Debug the state of dropdown
+  useEffect(() => {
+    if (submenu && submenu.length > 0) {
+      console.log(`Dropdown for ${title} is ${isOpen ? 'open' : 'closed'}`);
+    }
+  }, [isOpen, title, submenu]);
+
   return (
-    <div 
-      className="relative group"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="relative inline-block" ref={menuRef}>
       {href ? (
         <Link 
           href={href} 
-          className="text-light hover:text-secondary transition-colors inline-flex items-center"
+          className="text-light hover:text-secondary transition-colors inline-flex items-center text-sm xl:text-base whitespace-nowrap px-2 py-1"
+          onClick={() => submenu && submenu.length > 0 && setIsOpen(!isOpen)}
+          onMouseEnter={() => submenu && submenu.length > 0 && setIsOpen(true)}
+          onMouseLeave={() => submenu && submenu.length > 0 && setTimeout(() => setIsOpen(false), 200)}
         >
           {title}
-          {submenu && (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 ml-1">
+          {submenu && submenu.length > 0 && (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-3 h-3 ml-1">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           )}
         </Link>
       ) : (
         <button
-          className="text-light hover:text-secondary transition-colors inline-flex items-center"
-          onClick={() => setIsOpen(!isOpen)}
+          className="text-light hover:text-secondary transition-colors inline-flex items-center text-sm xl:text-base whitespace-nowrap px-2 py-1"
+          onClick={() => submenu && submenu.length > 0 && setIsOpen(!isOpen)}
+          onMouseEnter={() => submenu && submenu.length > 0 && setIsOpen(true)}
+          onMouseLeave={() => submenu && submenu.length > 0 && setTimeout(() => setIsOpen(false), 200)}
         >
           {title}
-          {submenu && (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 ml-1">
+          {submenu && submenu.length > 0 && (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-3 h-3 ml-1">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           )}
         </button>
       )}
       
-      {submenu && isOpen && (
-        <div className="absolute left-0 mt-2 py-2 bg-dark/95 backdrop-blur-md border border-primary/20 rounded-md shadow-lg min-w-[200px] z-10">
+      {/* Dropdown Menu */}
+      {submenu && submenu.length > 0 && (
+        <div 
+          className={`dropdown-menu ${isOpen ? 'show' : ''}`}
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+          style={{ 
+            minWidth: menuRef.current ? `${menuRef.current.offsetWidth}px` : '200px',
+            display: isOpen ? 'block' : 'none' // Force display when open
+          }}
+        >
           {submenu.map((item, index) => (
             <Link
               key={index}
               href={item.href}
-              className="block px-4 py-2 text-sm text-light hover:text-secondary hover:bg-dark/80"
+              className="dropdown-item"
             >
               {item.title}
             </Link>
@@ -175,7 +199,7 @@ export default function Header() {
       <Link 
         key={`${parentKey}-${index}`}
         href={item.href} 
-        className="block py-2 pl-6 text-sm text-light/80 hover:text-secondary transition-colors"
+        className="block py-1.5 pl-4 text-xs text-light/80 hover:text-secondary transition-colors"
       >
         {item.title}
       </Link>
@@ -183,37 +207,94 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md">
-      <div className="container-custom py-6">
+    <header className="fixed top-0 left-0 right-0 z-[1000] bg-dark/90 backdrop-blur-md">
+      <style jsx global>{`
+        /* Clean minimal styling */
+        header {
+          isolation: isolate;
+        }
+        
+        /* Dropdown styling */
+        .dropdown-menu {
+          position: absolute !important;
+          top: 100% !important;
+          left: 0 !important;
+          margin-top: 0.25rem;
+          background-color: #0a0a14 !important;
+          border: 2px solid rgba(148, 85, 255, 0.5) !important;
+          border-radius: 0.375rem;
+          padding: 0.5rem 0;
+          min-width: 200px;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          z-index: 10000 !important;
+          max-height: 300px;
+          overflow-y: auto;
+          transition: all 0.2s ease;
+        }
+        
+        .dropdown-menu.show {
+          opacity: 1 !important;
+          visibility: visible !important;
+          pointer-events: auto !important;
+          display: block !important;
+        }
+        
+        .dropdown-item {
+          display: block;
+          padding: 0.5rem 1rem;
+          font-size: 0.875rem;
+          color: #f8f9fa;
+          text-decoration: none;
+          white-space: nowrap;
+        }
+        
+        .dropdown-item:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+          color: #9455ff;
+        }
+
+        /* Fix for navbar scrolling */
+        nav {
+          overflow: visible !important;
+        }
+        
+        /* Make sure dropdown buttons have proper cursor */
+        button, a {
+          cursor: pointer;
+        }
+      `}</style>
+      <div className="max-w-[1400px] mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center flex-shrink-0">
             <Image 
               src="/images/branding/footer-logo.svg" 
               alt="Hogar Controls" 
-              width={200} 
-              height={70}
-              className="h-16 w-auto"
+              width={160} 
+              height={55}
+              className="h-12 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {menuItems.map((item, index) => (
-              <MenuItem 
-                key={index} 
-                title={item.title} 
-                href={item.href} 
-                submenu={item.submenu}
-                isLast={item.isLast}
-              />
-            ))}
-            <button className="btn-primary ml-4">Get Started</button>
+          <nav className="hidden lg:flex items-center flex-grow justify-end">
+            <div className="flex items-center space-x-2 md:space-x-3 lg:space-x-2 xl:space-x-4 2xl:space-x-6 flex-nowrap">
+              {menuItems.map((item, index) => (
+                <MenuItem 
+                  key={index} 
+                  title={item.title} 
+                  href={item.href} 
+                  submenu={item.submenu}
+                  isLast={item.isLast}
+                />
+              ))}
+              <Link href="/get-started" className="btn-primary ml-2 xl:ml-4 whitespace-nowrap text-sm xl:text-base px-3 xl:px-4 py-1.5 xl:py-2">Get Started</Link>
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-light"
+            className="lg:hidden text-light"
             onClick={toggleMenu}
             aria-label="Toggle Menu"
           >
@@ -231,22 +312,28 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-4 max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden py-3 space-y-2 max-h-[70vh] overflow-y-auto bg-dark/95 backdrop-blur-md border border-primary/20 rounded-lg mt-2 shadow-lg z-[101] absolute left-0 right-0 mx-4">
             {menuItems.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="border-b border-primary/10 last:border-b-0 px-2">
                 {item.href ? (
-                  <Link href={item.href} className="block py-2 text-light hover:text-secondary transition-colors">
+                  <Link href={item.href} className="block py-1.5 text-sm text-light hover:text-secondary transition-colors">
                     {item.title}
                   </Link>
                 ) : (
-                  <div className="block py-2 text-light">
+                  <div className="block py-1.5 text-sm text-light">
                     {item.title}
                   </div>
                 )}
-                {item.submenu && renderMobileSubmenu(item.submenu, `mobile-${index}`)}
+                {item.submenu && (
+                  <div className="pb-1.5">
+                    {renderMobileSubmenu(item.submenu, `mobile-${index}`)}
+                  </div>
+                )}
               </div>
             ))}
-            <button className="btn-primary w-full mt-4">Get Started</button>
+            <div className="px-2 pt-2">
+              <Link href="/get-started" className="btn-primary w-full text-sm py-1.5 block text-center">Get Started</Link>
+            </div>
           </div>
         )}
       </div>

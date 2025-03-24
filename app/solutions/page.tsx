@@ -75,7 +75,7 @@ export default function SolutionsPage() {
             <div className="lg:w-1/2 order-2 lg:order-1">
               <div className="bg-dark/50 border border-primary/20 rounded-xl h-80 overflow-hidden relative">
                 <Image
-                  src="/images/solutions/home-security.jpg"
+                  src="/images/solutions/home_security.jpg"
                   alt="Smart Security & Surveillance"
                   fill
                   style={{ objectFit: 'cover' }}

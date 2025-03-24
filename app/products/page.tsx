@@ -85,7 +85,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/smart-controllers.svg"
+                  src="/images/solutions/home_security.jpg"
                   alt="Smart Controllers"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -104,7 +104,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/touch-panels.svg"
+                  src="/images/banners/banner-01.jpg"
                   alt="Touch Panels"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -123,7 +123,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/retrofit-modules.svg"
+                  src="/images/general/smart-home.jpg"
                   alt="Retrofit Modules"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -142,7 +142,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/security-sensors.svg"
+                  src="/images/general/experience-centre.jpg"
                   alt="Security Sensors"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -161,7 +161,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/video-doorbell.svg"
+                  src="/images/general/testimonial.png"
                   alt="Video Door Bells"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -180,7 +180,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/smart-locks.svg"
+                  src="/images/app/mobile-app.png"
                   alt="Door Locks"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -199,7 +199,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/security-cameras.svg"
+                  src="/images/app/hogar-app.jpg"
                   alt="Security Cameras"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -218,7 +218,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/blind-motors.svg"
+                  src="/images/banners/slider3.png"
                   alt="Blind Motors"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -237,7 +237,7 @@ export default function ProductsPage() {
             <div className="bg-dark/50 rounded-xl overflow-hidden">
               <div className="h-48 bg-dark/70 relative">
                 <Image
-                  src="/images/products/curtain-motors.svg"
+                  src="/images/solutions/curtain-automation.png"
                   alt="Curtain Motors"
                   fill
                   style={{ objectFit: 'cover' }}

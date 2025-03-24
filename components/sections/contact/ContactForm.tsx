@@ -167,28 +167,28 @@ export default function ContactForm() {
                   <div>
                     <h4 className="font-medium mb-2">Headquarters</h4>
                     <p className="text-light/80">
-                      123 Tech Boulevard<br />
-                      Suite 456<br />
-                      San Francisco, CA 94105<br />
-                      United States
+                      1102, Sanjeevaiah Nagar<br />
+                      Yapral, Secunderabad<br />
+                      Telangana 500087<br />
+                      India
                     </p>
                   </div>
                   <div>
                     <h4 className="font-medium mb-2">Research & Development</h4>
                     <p className="text-light/80">
-                      789 Innovation Street<br />
-                      Building C<br />
-                      Bangalore, Karnataka 560001<br />
+                      Plot No. 57, Rd Number 12<br />
+                      Banjara Hills<br />
+                      Hyderabad, Telangana 500034<br />
                       India
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-medium mb-2">European Office</h4>
+                    <h4 className="font-medium mb-2">International Office</h4>
                     <p className="text-light/80">
-                      10 Smart Home Avenue<br />
-                      3rd Floor<br />
-                      London EC1A 1BB<br />
-                      United Kingdom
+                      2955 Campus Drive #110<br />
+                      San Mateo<br />
+                      California 94403<br />
+                      United States
                     </p>
                   </div>
                 </div>
